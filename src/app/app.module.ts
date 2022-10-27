@@ -8,18 +8,22 @@ import { NavComponent } from './nav/nav.component';
 import { AuthModalComponent } from './user/auth-modal/auth-modal.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { VideoModule } from './video/video.module';
+import { AsDirective } from './as.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    AsDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    VideoModule
 
   ],
   providers: [],
