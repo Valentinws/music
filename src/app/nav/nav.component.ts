@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 import { ModalService } from '../services/modal.service';
 
 @Component({
@@ -11,8 +12,10 @@ export class NavComponent implements OnInit {
 
   constructor(
     public modal: ModalService,
+    public auth: AuthService,
     private router: Router
-  ) { }
+  ) {
+   }
 
   ngOnInit(): void {
   }
