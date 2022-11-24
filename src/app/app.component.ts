@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import { UserModule } from './user/user.module';
 
 @Component({
@@ -7,6 +8,9 @@ import { UserModule } from './user/user.module';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'music';
+  title = 'Colinde';
+  constructor(public auth: AuthService) {
+    
+  }
 
 }
