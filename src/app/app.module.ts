@@ -13,7 +13,10 @@ import { AsDirective } from './as.directive';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { ClipComponent } from './clip/clip.component';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -21,16 +24,19 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
     NavComponent,
     HomeComponent,
     AboutComponent,
-    AsDirective
+    AsDirective,
+    PrivacyComponent,
+    ClipComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     UserModule,
     VideoModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AppRoutingModule,
 
   ],
   providers: [],

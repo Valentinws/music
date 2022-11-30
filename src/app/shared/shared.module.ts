@@ -7,6 +7,7 @@ import { TabsContainerComponent } from './tabs-container/tabs-container.componen
 import { TabComponent } from './tab/tab.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { AlertComponent } from './alert/alert.component';
+import { EventBlockerDirective } from './directives/event-blocker.directive';
 
 
 
@@ -16,7 +17,8 @@ import { AlertComponent } from './alert/alert.component';
     InputComponent,
     TabsContainerComponent,
     TabComponent,
-    AlertComponent
+    AlertComponent,
+    EventBlockerDirective
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { AlertComponent } from './alert/alert.component';
     InputComponent,
     TabComponent,
     TabsContainerComponent,
-    AlertComponent
+    AlertComponent,
+    EventBlockerDirective
   ]
 })
 export class SharedModule { }
