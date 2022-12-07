@@ -16,7 +16,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ClipComponent } from './clip/clip.component';
-import { NotFoundComponent } from './not-found/not-found.component'
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NotFoundComponent } from './not-found/not-found.component'
     AngularFireAuthModule,
     AngularFirestoreModule,
     AppRoutingModule,
+    AngularFireStorageModule
 
   ],
   providers: [],
