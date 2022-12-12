@@ -7,7 +7,11 @@ module.exports = {
     'bg-red-400'
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 1s linear infinite',
+      }
+    }
   },
   plugins: [],
 }

@@ -22,11 +22,17 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.6",
+    "@types/node": "^18.11.12",
     "@types/uuid": "^9.0.0",
+    "@types/video.js": "^7.3.50",
+    "@videojs/themes": "^1.0.1",
     "ngx-mask": "^14.2.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "uuid": "^9.0.0",
+    "video.js": "^7.20.3",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -35,6 +41,7 @@
     "@angular/compiler-cli": "^14.2.0",
     "@cypress/schematic": "^2.4.0",
     "@types/jasmine": "~4.0.0",
+    "cypress": "latest",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -42,7 +49,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "tailwindcss": "^3.2.0",
-    "typescript": "~4.7.2",
-    "cypress": "latest"
+    "typescript": "~4.7.2"
   }
 }
