@@ -5,6 +5,8 @@ import { ClipComponent } from './clip/clip.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { ClipService } from './services/clip.service';
+
 
 const routes: Routes = [
   {
@@ -21,7 +23,10 @@ const routes: Routes = [
   },
   {
     path: 'clip/:id',
-    component: ClipComponent
+    component: ClipComponent,
+    resolve: {
+      clip: ClipService
+    }
   },
   {
     path: '**',

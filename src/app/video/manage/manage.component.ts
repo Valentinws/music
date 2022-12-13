@@ -15,14 +15,14 @@ export class ManageComponent implements OnInit {
   videoOrder = '1'
   clips: IClip[] = []
   activeClip: IClip | null = null
-  sort$: BehaviorSubject<string> 
+  sort$: BehaviorSubject<string>
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private clipService: ClipService,
     private modal: ModalService
-  ) { 
+  ) {
     this.sort$ = new BehaviorSubject(this.videoOrder)
   }
 
@@ -81,5 +81,17 @@ export class ManageComponent implements OnInit {
         this.clips.splice(index, 1)
       }
     })
+  }
+
+  async copyToClipboard($event: MouseEvent, docID: string | undefined) {
+    $event.preventDefault()
+
+    if (!docID) { return }
+    
+    const url = `${location.origin}/clip/${docID}`
+
+    await navigator.clipboard.writeText(url)
+
+    alert('Link Copied!')
   }
 }
