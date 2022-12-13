@@ -8,7 +8,6 @@ import { NavComponent } from './nav/nav.component';
 import { AuthModalComponent } from './user/auth-modal/auth-modal.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { VideoModule } from './video/video.module';
 import { AsDirective } from './as.directive';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -37,7 +36,6 @@ import { FbTimestampPipe } from './pipes/fb-timestamp.pipe'
   imports: [
     BrowserModule,
     UserModule,
-    VideoModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
