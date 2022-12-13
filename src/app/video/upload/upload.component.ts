@@ -135,7 +135,7 @@ export class UploadComponent implements OnDestroy {
         ]))
     ).subscribe({
       next: async (urls) => {
-        const [clipURL, screnshotURL] = urls
+        const [clipURL, screenshotURL] = urls
 
         const clip = {
           uid: this.user?.uid as string,
@@ -143,7 +143,7 @@ export class UploadComponent implements OnDestroy {
           title: this.title.value,
           fileName: `${clipFileName}.mp4`,          
           url: clipURL,
-          screnshotURL,
+          screenshotURL,
           screenshotFileName: `${clipFileName}.png`,
           timestamp: firebase.firestore.FieldValue.serverTimestamp()
         }

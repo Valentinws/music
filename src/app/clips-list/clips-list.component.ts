@@ -30,7 +30,7 @@ export class ClipsListComponent implements OnInit, OnDestroy {
       window.removeEventListener('scroll', this.handleScroll)
     }
 
-    this.clipService.pageClips = []
+    // this.clipService.pageClips = []
   }
 
   handleScroll = () => {  

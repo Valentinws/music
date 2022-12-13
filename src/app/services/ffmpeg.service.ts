@@ -50,22 +50,22 @@ export class FfmpegService {
       ...commands
     )
 
-    const screnshots: string[] = [];
+    const screenshots: string[] = [];
     seconds.forEach(second => {
-      const screnshotFile = this.ffmpeg.FS('readFile', `output_${second}.png`)
-      const screnshotBlob = new Blob(
-        [screnshotFile.buffer], {
+      const screenshotFile = this.ffmpeg.FS('readFile', `output_${second}.png`)
+      const screenshotBlob = new Blob(
+        [screenshotFile.buffer], {
           type: 'image/png'
         }
       )
 
-      const screnshotURL = URL.createObjectURL(screnshotBlob)
-      screnshots.push(screnshotURL)
+      const screenshotURL = URL.createObjectURL(screenshotBlob)
+      screenshots.push(screenshotURL)
     })
     this.isRunning = false;
-    return screnshots
+    return screenshots
 
-    // for one screnshot  
+    // for one screenshot  
     // await this.ffmpeg.run(
     //   // Input
     //   '-i', file.name,
