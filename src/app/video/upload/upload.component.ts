@@ -8,6 +8,7 @@ import firebase from 'firebase/compat/app';
 import { ClipService } from 'src/app/services/clip.service';
 import { Router } from '@angular/router';
 import { FfmpegService } from 'src/app/services/ffmpeg.service';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @Component({
@@ -122,7 +123,7 @@ export class UploadComponent implements OnDestroy {
 
       const total = clipProgress + screenshotProgress
 
-      this.percentage = total as number / 200
+      this.percentage = Math.ceil(total as number / 2)
     })
 
     forkJoin([
