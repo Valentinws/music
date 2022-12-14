@@ -34,14 +34,13 @@
                 </div>
                 <input type="file" class="mt-4" (change)="storeFile($event)">
             </ng-container>
-            <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
             <!-- Video Editor -->
             <ng-template #uploadForm>
                 <app-alert *ngIf="alertField" [color]="alertColor">
                     {{ alertMsg }}
                     <span *ngIf="showPercentage">
                         <mat-progress-bar mode="determinate" [value]="percentage | number: '1.0-0' "></mat-progress-bar>
-                        {{ percentage | number: '1.0-0' }}
+                        {{ percentage/100 | percent }}
                     </span>
                 </app-alert>
             
