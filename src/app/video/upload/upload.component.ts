@@ -123,7 +123,7 @@ export class UploadComponent implements OnDestroy {
 
       const total = clipProgress + screenshotProgress
 
-      this.percentage = Math.ceil(total as number / 2)
+      this.percentage = total as number / 2
     })
 
     forkJoin([
