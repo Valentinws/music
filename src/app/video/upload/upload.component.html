@@ -38,11 +38,14 @@
             <ng-template #uploadForm>
                 <app-alert *ngIf="alertField" [color]="alertColor">
                     {{ alertMsg }}
+                    
+                    <mat-progress-bar [value]="percentage " class="text-left"></mat-progress-bar>
                     <span *ngIf="showPercentage">
-                        <mat-progress-bar mode="determinate" [value]="percentage | number: '1.0-0' "></mat-progress-bar>
-                        {{ percentage/100 | percent }}
+                        {{ percentage/100 | percent}}
                     </span>
+                    <mat-progress-bar [value]="percentage " class="text-start"></mat-progress-bar>
                 </app-alert>
+               
             
                 <!-- Form -->
                 <form (ngSubmit)="uploadFile()" [formGroup]="upploadForm">

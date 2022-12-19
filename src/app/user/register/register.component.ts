@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import IUser from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { EmailTaken } from '../validators/email-taken';
@@ -12,7 +13,8 @@ import { RegisterValidators } from '../validators/register-validators';
 export class RegisterComponent {
   constructor(
     private auth: AuthService,
-    private emailTaken: EmailTaken
+    private emailTaken: EmailTaken,
+    private _snackBar: MatSnackBar
   ) { }
 
   inSubmission = false;
@@ -47,6 +49,7 @@ export class RegisterComponent {
   showAlert = false
   alertMsg = 'Please wait! Your account is being created.'
   alertColor = 'blue'
+  
 
   registerForm = new FormGroup({
     name: this.name,
@@ -59,7 +62,8 @@ export class RegisterComponent {
 
  async register() {
     this.showAlert = true
-    this.alertMsg = 'Please wait! Your account is being created.'
+   this.alertMsg = 'Please wait! Your account is being created.'
+   this._snackBar.open(this.alertMsg, 'X', { duration: 2000 });
    this.alertColor = 'blue'
    this.inSubmission = true;
    
@@ -70,11 +74,13 @@ export class RegisterComponent {
      console.error(e);
      this.alertMsg = " An unexpected error occured. Please try again later. "
      this.alertColor = 'red';
+     this._snackBar.open(this.alertMsg, 'X', { duration: 2000 });
      this.inSubmission = false;
      return
    }
    this.alertMsg = 'Succes! Your account has been created'
    this.alertColor = 'green'
+   this._snackBar.open(this.alertMsg, 'X', { duration: 2000 });
   }
 
 }

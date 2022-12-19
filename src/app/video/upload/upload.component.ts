@@ -9,6 +9,8 @@ import { ClipService } from 'src/app/services/clip.service';
 import { Router } from '@angular/router';
 import { FfmpegService } from 'src/app/services/ffmpeg.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
 
 
 @Component({
@@ -49,7 +51,8 @@ export class UploadComponent implements OnDestroy {
     private auth: AngularFireAuth,
     private clipsService: ClipService,
     private router: Router,
-    public ffmpegService: FfmpegService
+    public ffmpegService: FfmpegService,
+    private snackBar: MatSnackBar
   ) { 
     auth.user.subscribe(user => this.user = user)
     this.ffmpegService.init()
@@ -93,6 +96,7 @@ export class UploadComponent implements OnDestroy {
     this.alertMsg = 'Please wait! Your clip is being uploaded. ';
     this.inSubmission = true;
     this.showPercentage = true;
+    this.snackBar.open(this.alertMsg,'x', {duration: 3000})
    
     const clipFileName = uuid()
     const clipPath = `clips/${clipFileName}.mp4`
@@ -120,15 +124,16 @@ export class UploadComponent implements OnDestroy {
       if (!clipProgress || !screenshotProgress) {
         return
       }
-
+      
       const total = clipProgress + screenshotProgress
-
-      this.percentage = total as number / 2
+      
+      this.percentage = Math.round(total as number / 2)
+      
     })
 
     forkJoin([
       this.task.snapshotChanges(),
-      this.screenshotTask.snapshotChanges()
+      this.screenshotTask.snapshotChanges() 
       ]).pipe(
         switchMap(() => forkJoin([
           clipRef.getDownloadURL(),
@@ -153,6 +158,7 @@ export class UploadComponent implements OnDestroy {
 
         this.alertColor = 'green'
         this.alertMsg = 'Success! Your clip is now ready to share with the world.';
+        this.snackBar.open(this.alertMsg, 'x', { duration: 3000 })
         this.showPercentage = false;
 
         setTimeout(() => {
@@ -165,6 +171,7 @@ export class UploadComponent implements OnDestroy {
         this.upploadForm.enable()
         this.alertColor = 'red';
         this.alertMsg = 'Upload failed! Please try again later.';
+        this.snackBar.open(this.alertMsg, 'x', { duration: 3000 })
         this.inSubmission = true; 
         this.showPercentage = false;
         console.log(error.code);

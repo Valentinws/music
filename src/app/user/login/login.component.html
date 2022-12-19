@@ -31,4 +31,7 @@
                                     hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400">
         Submit
     </button>
+<div class="block w-full  py-1.5 px-3"style="width: 100%; height: 100px; display: flex; justify-content: center;" *ngIf="inSubmission" >
+    <mat-spinner style="position: absolute;" ></mat-spinner>
+</div>
 </form>
